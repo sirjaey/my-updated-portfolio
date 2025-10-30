@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import emailjs from 'emailjs-com'
-import { MapPin, Mail, Phone, Linkedin, Github, Twitter } from "lucide-react";
+import { MapPin, Mail, Phone} from "lucide-react";
 
 const SERVICE_ID = 'service_l204kpb'
 const TEMPLATE_ID = 'template_3bcsn2q'

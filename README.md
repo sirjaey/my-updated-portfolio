@@ -1,73 +1,58 @@
-# React + TypeScript + Vite
+# 🧑‍💻 Joshua Abu - Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is my personal **developer portfolio website** built with **React**, **TypeScript** and **TailwindCSS**, showcasing my projects, skills, and experience as a Frontend Developer.  
+It serves as a digital space to highlight my work, share contact information, and demonstrate my technical abilities through interactive and responsive design.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+- **Responsive Design** — Fully optimized for desktop and mobile screens.  
+- **Interactive Navigation** — Smooth scrolling and hamburger menu for mobile view.  
+- **Projects Section** — Displays my best work with live links and GitHub repos.  
+- **Skills Section** — Highlights my technical proficiencies.  
+- **Contact Form** — Integrated with EmailJS for direct communication.  
+- **Modern UI** — Built with TailwindCSS for a clean and elegant look.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Frontend:** React.js, TypeScript
+- **Styling:** TailwindCSS
+- **Icons:** Lucide React / Font Awesome
+- **Email Handling:** EmailJS
+- **Deployment:** Netlify / Vercel
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🌍 Live Demo
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+🔗 Live Site: https://your-portfolio-link.netlify.app
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+💻 GitHub Repo: https://github.com/sirjaey/my-updated-portfolio
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🧩 Future Improvements
+
+- Add dark mode support
+
+- Include more interactive animations
+
+- Integrate a blog or case study section
+
+---
+
+## 👤 Author
+
+Joshua Abu
+Frontend Developer passionate about building interactive, user-focused web applications.
+
+- 📧 Email: joshuaabu1995@gmail.com
+
+- 🌐 Portfolio: https://your-portfolio-link.netlify.app
+
+- 💼 LinkedIn: https://www.linkedin.com/in/joshua-abu-3180b0284/
+
+---

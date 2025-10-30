@@ -5,7 +5,7 @@ import SkillsSection from './components/SkillsSection';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
-export default function Portfolio(): JSX.Element {
+export default function Portfolio(){
     return (
         <div className="min-h-screen relative text-gray-900 antialiased overflow-hidden">
             {/* Animated Gradient Background */}
