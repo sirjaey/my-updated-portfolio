@@ -26,9 +26,9 @@ It serves as a digital space to highlight my work, share contact information, an
 
 ---
 
-## 🌍 Live Demo
+## 🌍 Live Site
 
-🔗 Live Site: https://your-portfolio-link.netlify.app
+🔗 Live Site: https://joshua-abu.vercel.app
 
 💻 GitHub Repo: https://github.com/sirjaey/my-updated-portfolio
 
@@ -51,7 +51,7 @@ Frontend Developer passionate about building interactive, user-focused web appli
 
 - 📧 Email: joshuaabu1995@gmail.com
 
-- 🌐 Portfolio: https://your-portfolio-link.netlify.app
+- 🌐 Portfolio: https://joshua-abu.vercel.app
 
 - 💼 LinkedIn: https://www.linkedin.com/in/joshua-abu-3180b0284/
 
