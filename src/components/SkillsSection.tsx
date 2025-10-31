@@ -50,7 +50,7 @@ const SkillsSection: React.FC = () => {
             
             <div className="absolute inset-0 animate-gradient  bg-gray-700  opacity-50 -z-10" />
 
-            <div className="container mx-auto px-6 md:px-12 lg:px-24">
+            <div className="container mx-auto md:px-12 lg:px-24">
                 <h2 className="text-4xl font-bold text-center mb-4">My Skills</h2>
                 <div className="w-24 h-1 mx-auto bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full mb-8"></div>
                 <p className="text-center text-gray-300 mb-12 max-w-2xl mx-auto">
