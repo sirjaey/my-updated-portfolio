@@ -5,13 +5,14 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <header className="flex justify-between items-center p-4 ">
+        <header className="flex justify-between items-center py-4 md:p-4 ">
 
             {/* Desktop Menu */}
             <nav className="space-x-4 hidden md:flex">
                 <a href="#about" className="hover:underline">About</a>
                 <a href="#projects" className="hover:underline">Projects</a>
                 <a href="#skills" className="hover:underline">Skills</a>
+                <a href="#certificates" className="hover:underline">Certificates</a>
                 <a href="#contact" className="hover:underline">Contact</a>
             </nav>
 
@@ -29,6 +30,7 @@ const Navbar = () => {
                     <a href="#" className="hover:underline" onClick={() => setIsOpen(false)}>Home</a>
                     <a href="#projects" className="hover:underline" onClick={() => setIsOpen(false)}>Projects</a>
                     <a href="#skills" className="hover:underline" onClick={() => setIsOpen(false)}>Skills</a>
+                    <a href="#certificates" className="hover:underline" onClick={() => setIsOpen(false)}>Certificates</a>
                     <a href="#contact" className="hover:underline" onClick={() => setIsOpen(false)}>Contact</a>
                 </nav>
             )}

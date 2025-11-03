@@ -32,7 +32,6 @@ const Contact = () => {
 
     return (
         <section className="mt-16 bg-[#d1cbcb]/80 rounded-2xl md:p-6 shadow-md">
-            {/* Toast Container should be here once */}
             <ToastContainer position="top-right" autoClose={3000} />
 
             <div className="text-center">
@@ -45,7 +44,7 @@ const Contact = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
                 {/* Contact Info */}
-                <div className="space-y-6 text-left md:px-6">
+                <div className="space-y-6 text-left md:px-4">
                     <div className="flex items-center space-x-4 bg-gray-300 md:rounded-xl p-4 hover:bg-gray-700/50 transition">
                         <div className="p-3 bg-gray-900 rounded-lg">
                             <MapPin className="text-cyan-400 w-4 h-4 md:w-6 md:h-6" />

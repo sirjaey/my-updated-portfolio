@@ -2,6 +2,7 @@ import Navbar from './components/NavBar';
 import HeroSection from './components/HeroSection';
 import Projects from './components/Projects';
 import SkillsSection from './components/SkillsSection';
+import CertificatesCarousel from './components/Certificates';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -21,7 +22,7 @@ export default function Portfolio(){
         }
       `}</style>
 
-            <header className="max-w-6xl mx-auto p-6 flex bg-purple-900/50 md:bg-purple-900/5 mt-0 md:relative fixed top-0 left-0 right-0 z-20 items-center justify-between text-white shadow-md">
+            <header className="max-w-6xl mx-auto px-6 py-4 md:p-6 flex bg-gray-900/90 md:bg-purple-900/5 mt-0 md:relative fixed top-0 left-0 right-0 z-20 items-center justify-between text-white shadow-md">
                 <div className="text-xl font-semibold">Joshua Abu</div>
                 <Navbar />
             </header>
@@ -40,6 +41,11 @@ export default function Portfolio(){
                 {/* {SkillsSection} */}
                 <section id="skills" className="">
                     <SkillsSection />
+                </section>
+
+                {/* Certificates */}
+                <section id="certificates" className="my-16">
+                    <CertificatesCarousel />
                 </section>
 
                 {/* Contact */}
