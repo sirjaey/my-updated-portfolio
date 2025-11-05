@@ -83,7 +83,7 @@ const CertificatesCarousel: React.FC = () => {
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
                 >
-                    🏆 Certificates & Awards
+                    Certificates & Awards
                 </motion.h2>
 
                 <div className="w-24 h-1 mx-auto bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full mb-8"></div>
