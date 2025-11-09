@@ -27,7 +27,7 @@ export default function Portfolio(){
                 <Navbar />
             </header>
 
-            <main className="max-w-6xl mx-auto px-6 pb-20 text-gray-900 pt-24 md:pt-0">
+            <main className="max-w-6xl mx-auto px-6 pb-10 text-gray-900 pt-24 md:pt-0">
                 {/* Hero */}
                 <section id='about'>
                     <HeroSection />
