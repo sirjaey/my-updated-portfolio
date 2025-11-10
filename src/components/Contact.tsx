@@ -31,7 +31,7 @@ const Contact = () => {
     };
 
     return (
-        <section className="mt-16 bg-[#d1cbcb]/80 rounded-2xl md:p-6 shadow-md">
+        <section className="mt-16 bg-[#d1cbcb]/80 rounded-2xl md:p-6 md:pt-8 shadow-md">
             <ToastContainer position="top-right" autoClose={3000} />
 
             <div className="text-center">
