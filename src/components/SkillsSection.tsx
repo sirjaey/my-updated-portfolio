@@ -27,7 +27,7 @@ const technologies = [
     "Bootstrap",
     "Next.js",
     "Tailwind CSS",
-    "Git",
+    "Git/GitHub",
     "React Query",
     "Tanstack Query",
     "UI Frameworks",
@@ -45,13 +45,13 @@ const SkillsSection: React.FC = () => {
 
     return (
         <section
-            className="relative min-h-screen flex flex-col justify-center items-center text-white overflow-hidden mt-16 rounded-2xl p-6 shadow-md"
+            className="relative  flex flex-col justify-center items-center text-white overflow-hidden mt-16 rounded-2xl p-6 shadow-md"
         >
             
-            <div className="absolute inset-0 animate-gradient  bg-gray-700  opacity-50 -z-10" />
+            <div className="absolute inset-0 animate-gradient  bg-gray-700 opacity-50 -z-10" />
 
             <div className="container mx-auto md:px-12 lg:px-24">
-                <h2 className="text-4xl font-bold text-center mb-4">My Skills</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">My Skills</h2>
                 <div className="w-24 h-1 mx-auto bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full mb-8"></div>
                 <p className="text-center text-gray-300 mb-12 max-w-2xl mx-auto">
                     The skills and technologies powering my work, crafting seamless digital experiences with modern tools.

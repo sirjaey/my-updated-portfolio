@@ -35,7 +35,7 @@ const Contact = () => {
             <ToastContainer position="top-right" autoClose={3000} />
 
             <div className="text-center">
-                <h2 className="text-4xl font-bold pt-6 md:pt-0 mb-6 text-gray-900">Get in Touch</h2>
+                <h2 className="text-3xl md:text-4xl font-bold pt-6 md:pt-0 mb-6 text-gray-900">Get in Touch</h2>
                 <div className="w-24 h-1 mx-auto bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full mb-8"></div>
                 <p className="text-gray-900 font-bold mb-4 md:px-50 md:text-center px-4">
                     I'd love to hear from you! Whether you have a question about my work, want to collaborate, or just say hi, feel free to reach out.

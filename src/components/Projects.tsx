@@ -69,7 +69,7 @@ const Projects = () => {
 
     return (
         <section className="mt-10 bg-gray-400/50 px-0 pt-4 md:pt-8 md:px-8 md:py-8 rounded-2xl shadow-md">
-            <h2 className="text-4xl font-bold mb-6 text-white text-center">My Projects</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white text-center">My Projects</h2>
             <div className="w-24 h-1 mx-auto bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full mb-8"></div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {Myprojects.map((p) => (
@@ -83,8 +83,8 @@ const Projects = () => {
                             ))}
                         </div>
                         <div className="mt-4 flex gap-2">
-                            {p.live && <a href={p.live} className="text-sm underline">Live</a>}
-                            {p.repo && <a href={p.repo} className="text-sm underline">Repo</a>}
+                            {p.live && <a href={p.live} target="_blank" rel="noopener noreferrer" className="text-sm underline">Live</a>}
+                            {p.repo && <a href={p.repo} target="_blank" rel="noopener noreferrer" className="text-sm underline">Repo</a>}
                         </div>
                     </article>
                 ))}
