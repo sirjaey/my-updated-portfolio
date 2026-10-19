@@ -37,7 +37,7 @@ export const socials = [
 export const projects: Project[] = [
     {
         id: 'p1',
-        photo: 'BigFarma.png',
+        photo: 'BigFarma.webp',
         title: 'BigFarma',
         kind: 'Web platform',
         description: 'A modern web app that connects farmers, suppliers, and buyers, helping transform Africa’s agro business.',
@@ -47,7 +47,7 @@ export const projects: Project[] = [
     },
     {
         id: 'p2',
-        photo: 'TodoApp.png',
+        photo: 'TodoApp.webp',
         title: 'Todo App',
         kind: 'Full-stack app',
         description: 'A full-stack todo application with authentication and realtime updates.',
@@ -57,7 +57,7 @@ export const projects: Project[] = [
     },
     {
         id: 'p3',
-        photo: 'spaceTourism.png',
+        photo: 'spaceTourism.webp',
         title: 'Space Tourism',
         kind: 'Multi-page site',
         description: 'A multi-page site exploring space tourism destinations, crew, and technology.',
@@ -67,7 +67,7 @@ export const projects: Project[] = [
     },
     {
         id: 'p4',
-        photo: 'Ecommerce.png',
+        photo: 'Ecommerce.webp',
         title: 'E-commerce Product Page',
         kind: 'Frontend Mentor',
         description: 'A single product page for an e-commerce store, with an image gallery and cart.',
@@ -77,7 +77,7 @@ export const projects: Project[] = [
     },
     {
         id: 'p5',
-        photo: 'mortgageCalc.png',
+        photo: 'mortgageCalc.webp',
         title: 'Mortgage Calculator',
         kind: 'Utility',
         description: 'A tool for calculating mortgage repayments and total interest.',
@@ -87,7 +87,7 @@ export const projects: Project[] = [
     },
     {
         id: 'p6',
-        photo: 'InteractiveCard.png',
+        photo: 'InteractiveCard.webp',
         title: 'Interactive Card Details',
         kind: 'Frontend Mentor',
         description: 'An interactive card form that previews card details live as you type.',
@@ -101,35 +101,35 @@ export const certificates: Certificate[] = [
     {
         title: 'AltSchool Africa Graduation Certificate',
         issuer: 'AltSchool Africa',
-        image: './AltSchoolCert.png',
+        image: './AltSchoolCert.webp',
         date: '2025',
         link: 'https://altschoolafrica.com',
     },
     {
         title: 'Frontend Engineering Track Completion',
         issuer: 'AltSchool Africa',
-        image: './FrontendTrack.png',
+        image: './FrontendTrack.webp',
         date: '2025',
         link: 'https://altschoolafrica.com',
     },
     {
         title: 'Ayoba Developer Scholarship Program Award',
         issuer: 'Ayoba',
-        image: './Ayoba.png',
+        image: './Ayoba.webp',
         date: '2024',
         link: 'https://altschoolafrica.com/scholarship/ayoba-developer-program-scholarship-fund',
     },
     {
         title: 'Responsive Web Design Certification',
         issuer: 'freeCodeCamp',
-        image: './ResponsiveWD1.png',
+        image: './ResponsiveWD1.webp',
         date: '2025',
         link: 'https://www.freecodecamp.org/certification/joshuaabu/responsive-web-design',
     },
     {
         title: 'Legacy JavaScript Algorithms and Data Structures',
         issuer: 'freeCodeCamp',
-        image: './legacyJs.png',
+        image: './legacyJs.webp',
         date: '2025',
         link: 'https://www.freecodecamp.org/certification/joshuaabu/javascript-algorithms-and-data-structures',
     },

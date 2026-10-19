@@ -84,7 +84,10 @@ const HeroSection = () => {
                 <motion.figure {...rise(0.2)} className="md:col-span-5">
                     <div className="group relative aspect-[4/5] overflow-hidden rounded-2xl border border-line bg-ink-2">
                         <img
-                            src="/myphoto.png"
+                            src="/myphoto.webp"
+                            width={500}
+                            height={500}
+                            fetchPriority="high"
                             alt="Portrait of Joshua Abu"
                             className="h-full w-full object-cover object-[50%_35%] grayscale transition duration-700 group-hover:scale-[1.02] group-hover:grayscale-0"
                         />
