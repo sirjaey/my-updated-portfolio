@@ -1,15 +1,22 @@
 import { useState } from 'react';
 import emailjs from 'emailjs-com';
-import { MapPin, Mail, Phone } from "lucide-react";
+import { ArrowUpRight, Check, Copy, MapPin, Phone, Send } from "lucide-react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { profile, socials } from '../data';
+import Reveal from './Reveal';
+import SectionHeading from './SectionHeading';
 
 const SERVICE_ID = 'service_l204kpb';
 const TEMPLATE_ID = 'template_3bcsn2q';
 const PUBLIC_KEY = 'pKHk4Bn0peBByCoNX';
 
+const fieldClass =
+    'peer w-full border-b border-line bg-transparent py-3 text-lg outline-none transition-colors placeholder:text-muted/50 focus:border-signal';
+
 const Contact = () => {
     const [sending, setSending] = useState(false);
+    const [copied, setCopied] = useState(false);
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -20,110 +27,138 @@ const Contact = () => {
         emailjs
             .sendForm(SERVICE_ID, TEMPLATE_ID, form, PUBLIC_KEY)
             .then(() => {
-                toast.success('Message sent successfully!', { position: 'top-right' });
+                toast.success('Message sent. I’ll get back to you soon!');
                 form.reset();
             })
             .catch((err) => {
-                console.error(err);
-                toast.error('Failed to send message. Please try again.', { position: 'top-right' });
+                console.error('EmailJS error:', err?.status, err?.text ?? err);
+                const data = new FormData(form);
+                const subject = encodeURIComponent(`Portfolio enquiry from ${data.get('name') ?? ''}`);
+                const body = encodeURIComponent(`${data.get('message') ?? ''}\n\nReply to: ${data.get('email') ?? ''}`);
+                toast.error(
+                    <span>
+                        Couldn’t send right now.{' '}
+                        <a href={`mailto:${profile.email}?subject=${subject}&body=${body}`} className="underline">
+                            Email me directly instead
+                        </a>
+                        .
+                    </span>,
+                    { autoClose: 8000 }
+                );
             })
             .finally(() => setSending(false));
     };
 
+    const copyEmail = async () => {
+        try {
+            await navigator.clipboard.writeText(profile.email);
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000);
+        } catch {
+            window.location.href = `mailto:${profile.email}`;
+        }
+    };
+
     return (
-        <section className="mt-16 bg-[#d1cbcb]/80 rounded-2xl md:p-6 md:pt-8 shadow-md">
-            <ToastContainer position="top-right" autoClose={3000} />
+        <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6 md:py-32">
+            <ToastContainer position="top-right" autoClose={3000} theme="dark" />
 
-            <div className="text-center">
-                <h2 className="text-3xl md:text-4xl font-bold pt-6 md:pt-0 mb-6 text-gray-900">Get in Touch</h2>
-                <div className="w-24 h-1 mx-auto bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full mb-8"></div>
-                <p className="text-gray-900 font-bold mb-4 md:px-50 md:text-center px-4">
-                    I'd love to hear from you! Whether you have a question about my work, want to collaborate, or just say hi, feel free to reach out.
-                </p>
-            </div>
+            <SectionHeading index="04" label="Contact">
+                Have a project in mind? <span className="accent">Let’s talk.</span>
+            </SectionHeading>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
+            <div className="grid gap-14 md:grid-cols-12 md:gap-10">
                 {/* Contact Info */}
-                <div className="space-y-6 text-left md:px-4">
-                    <div className="flex items-center space-x-4 bg-gray-300 md:rounded-xl p-4 hover:bg-gray-700/50 transition">
-                        <div className="p-3 bg-gray-900 rounded-lg">
-                            <MapPin className="text-cyan-400 w-4 h-4 md:w-6 md:h-6" />
-                        </div>
-                        <div>
-                            <h4 className="text-sm md:text-lg font-semibold">Location</h4>
-                            <p className="text-gray-900 text-sm md:text-base">Abuja, Nigeria</p>
+                <Reveal className="md:col-span-5">
+                    <p className="max-w-md text-pretty leading-relaxed text-muted">
+                        I’d love to hear from you! Whether you have a question about my work, want to collaborate,
+                        or just want to say hi, my inbox is always open.
+                    </p>
+
+                    <div className="mt-8 rounded-2xl border border-line bg-ink-2 p-5">
+                        <p className="font-mono text-xs uppercase tracking-[0.15em] text-muted">Email</p>
+                        <div className="mt-2 flex items-center justify-between gap-3">
+                            <a
+                                href={`mailto:${profile.email}`}
+                                className="break-all text-lg font-medium transition-colors hover:text-signal md:text-xl"
+                            >
+                                {profile.email}
+                            </a>
+                            <button
+                                onClick={copyEmail}
+                                aria-label={copied ? 'Email copied' : 'Copy email address'}
+                                className="grid h-10 w-10 shrink-0 cursor-pointer place-items-center rounded-full border border-line transition-colors hover:border-signal hover:text-signal"
+                            >
+                                {copied ? <Check size={16} /> : <Copy size={16} />}
+                            </button>
                         </div>
                     </div>
 
-                    <div className="flex items-center space-x-4 bg-gray-300 md:rounded-xl p-4 hover:bg-gray-700/50 transition">
-                        <div className="p-3 bg-gray-900 rounded-lg">
-                            <Mail className="text-cyan-400 w-4 h-4 md:w-6 md:h-6" />
-                        </div>
-                        <div>
-                            <h4 className="text-sm md:text-lg font-semibold">Email</h4>
-                            <p className="text-gray-900 text-sm md:text-base">joshuaabu1995@gmail.com</p>
-                        </div>
-                    </div>
+                    <ul className="mt-6 space-y-3 text-muted">
+                        <li className="flex items-center gap-3">
+                            <Phone size={16} className="text-signal" />
+                            <a href={profile.phoneHref} className="transition-colors hover:text-paper">{profile.phone}</a>
+                        </li>
+                        <li className="flex items-center gap-3">
+                            <MapPin size={16} className="text-signal" />
+                            {profile.location}
+                        </li>
+                    </ul>
 
-                    <div className="flex items-center space-x-4 bg-gray-300 md:rounded-xl p-4 hover:bg-gray-700/50 transition">
-                        <div className="p-3 bg-gray-900 rounded-lg">
-                            <Phone className="text-cyan-400 w-4 h-4 md:w-6 md:h-6" />
-                        </div>
-                        <div>
-                            <h4 className="text-sm md:text-lg font-semibold">Phone</h4>
-                            <p className="text-gray-900 text-sm md:text-base">+234 8109428027</p>
-                        </div>
-                    </div>
-                </div>
+                    <ul className="mt-8 flex flex-wrap gap-2">
+                        {socials.map((s) => (
+                            <li key={s.label}>
+                                <a
+                                    href={s.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-1 rounded-full border border-line px-4 py-2 text-sm transition-colors hover:border-paper/50"
+                                >
+                                    {s.label} <ArrowUpRight size={14} className="text-muted" />
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </Reveal>
 
                 {/* Contact Form */}
-                <div>
-                    <form
-                        onSubmit={handleSubmit}
-                        className="space-y-4 bg-gray-300 md:rounded-lg px-4 py-4 md:px-6 md:py-6 shadow-md"
-                    >
-                        <div>
-                            <label className="text-sm font-medium">Name</label>
-                            <input
-                                name="name"
-                                required
-                                className="mt-1 w-full rounded-md border-gray-900/10 bg-gray-900/10 px-3 py-2 outline-none focus:ring-2 focus:ring-cyan-400 border-[2px]"
-                                placeholder="Your name"
-                            />
+                <Reveal delay={0.1} className="md:col-span-7">
+                    <form onSubmit={handleSubmit} className="space-y-8 rounded-2xl border border-line bg-ink-2 p-6 md:p-10">
+                        <div className="grid gap-8 sm:grid-cols-2">
+                            <div>
+                                <label htmlFor="name" className="font-mono text-xs uppercase tracking-[0.15em] text-muted">Name</label>
+                                <input id="name" name="name" required autoComplete="name" className={fieldClass} placeholder="Your name" />
+                            </div>
+                            <div>
+                                <label htmlFor="email" className="font-mono text-xs uppercase tracking-[0.15em] text-muted">Email</label>
+                                <input id="email" type="email" name="email" required autoComplete="email" className={fieldClass} placeholder="you@company.com" />
+                            </div>
                         </div>
 
                         <div>
-                            <label className="text-sm font-medium">Email</label>
-                            <input
-                                type="email"
-                                name="email"
-                                required
-                                className="mt-1 w-full rounded-md border-[2px] border-gray-900/10 bg-gray-900/10 px-3 py-2 outline-none focus:ring-2 focus:ring-cyan-400"
-                                placeholder="Your email"
-                            />
-                        </div>
-
-                        <div>
-                            <label className="text-sm font-medium">Message</label>
+                            <label htmlFor="message" className="font-mono text-xs uppercase tracking-[0.15em] text-muted">Message</label>
                             <textarea
+                                id="message"
                                 name="message"
                                 required
-                                className="mt-1 w-full rounded-md border-[2px] border-gray-900/10 bg-gray-900/10 px-3 py-2 h-28 outline-none focus:ring-2 focus:ring-cyan-400"
-                                placeholder="Your message"
+                                rows={4}
+                                className={`${fieldClass} resize-none`}
+                                placeholder="Tell me a little about what you're building…"
                             />
                         </div>
 
                         <button
                             type="submit"
                             disabled={sending}
-                            className="px-5 py-2 rounded-lg bg-black text-cyan-400 font-medium hover:bg-indigo-700 disabled:opacity-60 cursor-pointer transition"
+                            className="group inline-flex cursor-pointer items-center gap-2 rounded-full bg-signal px-7 py-3.5 font-medium text-ink transition-colors hover:bg-paper disabled:cursor-wait disabled:opacity-60"
                         >
-                            {sending ? 'Sending...' : 'Send Message'}
+                            {sending ? 'Sending…' : 'Send message'}
+                            <Send size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                         </button>
                     </form>
-                </div>
+                </Reveal>
             </div>
-        </section>
+        </div>
     );
 };
 

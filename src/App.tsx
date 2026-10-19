@@ -2,60 +2,48 @@ import Navbar from './components/NavBar';
 import HeroSection from './components/HeroSection';
 import Projects from './components/Projects';
 import SkillsSection from './components/SkillsSection';
-import CertificatesCarousel from './components/Certificates';
+import Certificates from './components/Certificates';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
-export default function Portfolio(){
+export default function Portfolio() {
     return (
-        <div className="min-h-screen relative text-gray-900 antialiased overflow-hidden">
-            {/* Animated Gradient Background */}
-            <div className="absolute inset-0 -z-10 animate-gradient bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 bg-[length:400%_400%]"></div>
-            <style>{`
-        @keyframes gradient {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-        .animate-gradient {
-          animation: gradient 15s ease infinite;
-        }
-      `}</style>
+        <div className="relative min-h-screen overflow-x-clip bg-ink text-paper antialiased">
+            {/* Film grain overlay */}
+            <div aria-hidden className="grain pointer-events-none fixed inset-0 z-50" />
 
-            <header className="max-w-6xl mx-auto px-6 py-4 md:p-6 flex bg-gray-900/90 md:bg-purple-900/5 mt-0 md:relative fixed top-0 left-0 right-0 z-20 items-center justify-between text-white shadow-md">
-                <div className="text-xl font-semibold">Joshua Abu</div>
-                <Navbar />
-            </header>
+            <a
+                href="#projects"
+                className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-70 focus:rounded-full focus:bg-signal focus:px-4 focus:py-2 focus:text-ink"
+            >
+                Skip to content
+            </a>
 
-            <main className="max-w-6xl mx-auto px-6 pb-10 text-gray-900 pt-24 md:pt-0">
-                {/* Hero */}
-                <section id='about'>
+            <Navbar />
+
+            <main>
+                <section id="about">
                     <HeroSection />
                 </section>
 
-                {/* Projects */}
                 <section id="projects">
                     <Projects />
                 </section>
 
-                {/* {SkillsSection} */}
-                <section id="skills" className="">
+                <section id="skills">
                     <SkillsSection />
                 </section>
 
-                {/* Certificates */}
-                <section id="certificates" className="my-16">
-                    <CertificatesCarousel />
+                <section id="certificates">
+                    <Certificates />
                 </section>
 
-                {/* Contact */}
                 <section id="contact">
                     <Contact />
                 </section>
-
-                {/* Footer */}
-                <Footer />
             </main>
+
+            <Footer />
         </div>
     )
 }

@@ -1,108 +1,79 @@
-import React from "react";
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import { Accessibility, Gauge, Boxes } from "lucide-react";
+import { skillGroups } from "../data";
+import Reveal from "./Reveal";
+import SectionHeading from "./SectionHeading";
 
-interface Skill {
-    name: string;
-    level: number;
-    color: string;
-}
-
-const skills: Skill[] = [
-    { name: "React", level: 95, color: "bg-cyan-400" },
-    { name: "TypeScript", level: 90, color: "bg-indigo-400" },
-    { name: "Node.js", level: 80, color: "bg-emerald-400" },
-    { name: "Next.js", level: 80, color: "bg-gray-400" },
-    { name: "Tailwind CSS", level: 95, color: "bg-sky-400" },
-    { name: "JavaScript", level: 95, color: "bg-pink-400" },
+const principles = [
+    {
+        icon: Accessibility,
+        title: "Accessible by default",
+        body: "Semantic markup, keyboard support and readable contrast from the first commit, not as an afterthought.",
+    },
+    {
+        icon: Gauge,
+        title: "Performance is a feature",
+        body: "Lean bundles, lazy-loaded media and interfaces that respond the moment you touch them.",
+    },
+    {
+        icon: Boxes,
+        title: "Built to be maintained",
+        body: "Typed, composable components and a developer experience the next engineer will thank you for.",
+    },
 ];
 
-const technologies = [
-    "HTML5",
-    "CSS3",
-    "JavaScript",
-    "React",
-    "TypeScript",
-    "Node.js",
-    "Bootstrap",
-    "Next.js",
-    "Tailwind CSS",
-    "Git/GitHub",
-    "React Query",
-    "Tanstack Query",
-    "UI Frameworks",
-    "RESTful APIs",
-    "React Testing Library",
-];
-
-const SkillsSection: React.FC = () => {
-    const controls = useAnimation();
-    const [ref, inView] = useInView({ threshold: 0.2, triggerOnce: true });
-
-    React.useEffect(() => {
-        if (inView) controls.start("visible");
-    }, [controls, inView]);
-
+const SkillsSection = () => {
     return (
-        <section
-            className="relative  flex flex-col justify-center items-center text-white overflow-hidden mt-16 rounded-2xl p-6 shadow-md"
-        >
-            
-            <div className="absolute inset-0 animate-gradient  bg-gray-700 opacity-50 -z-10" />
-
-            <div className="container mx-auto md:px-12 lg:px-24">
-                <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">My Skills</h2>
-                <div className="w-24 h-1 mx-auto bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full mb-8"></div>
-                <p className="text-center text-gray-300 mb-12 max-w-2xl mx-auto">
-                    The skills and technologies powering my work, crafting seamless digital experiences with modern tools.
-                </p>
-
-                <div
-                    ref={ref}
-                    className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start"
+        <div className="border-y border-line bg-ink-2/50">
+            <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6 md:py-32">
+                <SectionHeading
+                    index="02"
+                    label="Toolkit"
+                    aside="The skills and technologies powering my work: modern tools for crafting seamless digital experiences."
                 >
-                    {/* Left column: Skill bars */}
-                    <div>
-                        <h3 className="text-lg font-semibold mb-6">Proficiency Level</h3>
-                        {skills.map((skill) => (
-                            <div key={skill.name} className="mb-6">
-                                <div className="flex justify-between mb-2">
-                                    <span className="font-medium">{skill.name}</span>
-                                    <span>{skill.level}%</span>
+                    The tools I <span className="accent">reach for.</span>
+                </SectionHeading>
+
+                <div className="grid gap-14 md:grid-cols-12 md:gap-10">
+                    {/* Principles */}
+                    <div className="space-y-4 md:col-span-5">
+                        {principles.map(({ icon: Icon, title, body }, i) => (
+                            <Reveal key={title} delay={i * 0.08}>
+                                <div className="flex gap-4 rounded-2xl border border-line bg-ink p-5">
+                                    <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-line text-signal">
+                                        <Icon size={18} />
+                                    </span>
+                                    <div>
+                                        <h3 className="font-medium">{title}</h3>
+                                        <p className="mt-1 text-sm leading-relaxed text-muted">{body}</p>
+                                    </div>
                                 </div>
-                                <div className="w-full bg-gray-700 rounded-full h-2.5">
-                                    <motion.div
-                                        className={`h-2.5 rounded-full ${skill.color}`}
-                                        initial={{ width: 0 }}
-                                        animate={controls}
-                                        variants={{
-                                            visible: { width: `${skill.level}%`, transition: { duration: 1.2 } },
-                                        }}
-                                    />
-                                </div>
-                            </div>
+                            </Reveal>
                         ))}
                     </div>
 
-                    {/* Right column: Technology tags */}
-                    <div className="hidden md:block">
-                        <h3 className="text-lg font-semibold mb-6">Technologies</h3>
-                        <div className="md:flex-wrap gap-3 flex">
-                            {technologies.map((tech) => (
-                                <motion.span
-                                    key={tech}
-                                    className="px-4 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 text-sm transition-all duration-300 cursor-default"
-                                    whileHover={{ scale: 1.1 }}
-                                    whileTap={{ scale: 0.95 }}
-                                >
-                                    {tech}
-                                </motion.span>
+                    {/* Grouped stack */}
+                    <Reveal delay={0.1} className="md:col-span-7">
+                        <dl className="border-t border-line">
+                            {skillGroups.map((group) => (
+                                <div key={group.label} className="grid gap-3 border-b border-line py-5 sm:grid-cols-[150px_1fr] sm:gap-6">
+                                    <dt className="pt-1.5 font-mono text-xs uppercase tracking-[0.15em] text-muted">{group.label}</dt>
+                                    <dd className="flex flex-wrap gap-2">
+                                        {group.items.map((item) => (
+                                            <span
+                                                key={item}
+                                                className="rounded-full border border-line bg-ink px-3.5 py-1.5 text-sm transition-colors hover:border-signal hover:text-signal"
+                                            >
+                                                {item}
+                                            </span>
+                                        ))}
+                                    </dd>
+                                </div>
                             ))}
-                        </div>
-                    </div>
+                        </dl>
+                    </Reveal>
                 </div>
             </div>
-        </section>
+        </div>
     );
 };
 
