@@ -32,7 +32,7 @@ const HeroSection = () => {
         </div>
 
         <div className="rounded-2xl p-6 bg-white/20 backdrop-blur-md shadow-lg text-center">
-            <img src="/me.png" alt="Joshua Abu" className="w-full h-full object-cover" />
+            <img src="/myphoto.png" alt="Joshua Abu" className="w-full h-full object-cover" />
 
         </div>
     </section>)
